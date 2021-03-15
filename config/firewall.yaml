@@ -1,0 +1,18 @@
+firewall:
+   status: on
+   user:
+      binder: "@SessionUserBinder"
+   routes:
+      home:
+         path: /
+         methods: ["GET"]
+         permitAll: true
+      secured:
+         path: /ahoj/**
+         hasRole: ["USER"]
+      admin:
+         path: /admin/**
+         hasRole: [admin]
+      default:
+         default: true
+         permitAll: true

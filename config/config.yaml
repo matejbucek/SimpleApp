@@ -1,0 +1,13 @@
+app:
+   lookup:
+      prefix: src/
+      paths:
+         - Controllers
+         - Services
+      templates: 
+         path: templates/
+         temp: tmp/
+   errors:
+      name: "ErrorController"
+      method: handleError
+      

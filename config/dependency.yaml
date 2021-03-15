@@ -1,0 +1,10 @@
+parameters:
+   db:
+      default:
+         dsn: "mysql:host=localhost;dbname=sspbrno_auth"
+         username: 
+         password: 
+services:
+   EntityManager:
+      class: SimpleFW\Database\EntityManager
+      arguments: ["%db.default.dsn%", "%db.default.username%", "%db.default.password%"]

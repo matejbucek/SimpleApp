@@ -1,0 +1,19 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"App\\" : "src"
+		}
+	},
+	"name" : "matejbucek/simpleapp",
+	"repositories" : [{
+			"type" : "path",
+			"url" : "../SimpleFW",
+			"name" : "SimpleFW"
+		}
+	],
+	"require" : {
+		"php" : ">=7.4",
+		"matejbucek/simplefw": "dev-master"
+	},
+	"minimum-stability" : "dev"
+}

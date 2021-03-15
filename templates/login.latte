@@ -1,0 +1,12 @@
+{layout "base.latte"}
+{block title}Přihlášení{/block}
+{block content}
+	<form action="/login" method="post">
+		<input type="email" name="email" placeholder="Email">
+		<input type="password" name="password" placeholder="Password">
+		<input type="submit" value="Přihlásit se">
+	</form>
+	{if $error}
+		<p style="color: red;">Špatné přihlašovací údaje.</p>
+	{/if}
+{/block}
