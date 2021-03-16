@@ -6,14 +6,14 @@
 	},
 	"name" : "matejbucek/simpleapp",
 	"repositories" : [{
-			"type" : "path",
-			"url" : "../SimpleFW",
-			"name" : "SimpleFW"
+			"type" : "git",
+			"url" : "https://github.com/matejbucek/SimpleFW",
+			"name" : "SimpleFWRepo"
 		}
 	],
 	"require" : {
 		"php" : ">=7.4",
-		"matejbucek/simplefw": "dev-master"
+		"matejbucek/simplefw" : "dev-master"
 	},
 	"minimum-stability" : "dev"
 }

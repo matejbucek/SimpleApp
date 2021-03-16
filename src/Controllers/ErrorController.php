@@ -6,6 +6,8 @@ use SimpleFW\HttpBasics\Exceptions\PageNotFoundException;
 use SimpleFW\Annotations\Controller;
 use SimpleFW\HttpBasics\Exceptions\MethodNotSupportedException;
 use SimpleFW\HttpBasics\HttpResponse;
+use SimpleFW\Security\Exceptions\UserNotLoggedInException;
+use SimpleFW\HttpBasics\Exceptions\AccessForbiddenException;
 
 #[Controller]
 class ErrorController extends AbstractController
@@ -16,12 +18,11 @@ class ErrorController extends AbstractController
             $errorTitle = "Page not found :^(";
         }else if ($exception instanceof MethodNotSupportedException){
             $errorTitle = "This method is not supported at this endpoint. :^(";
+        }else if($exception instanceof UserNotLoggedInException){
+            $errorTitle = "You are not logged in..";
+        }else if($exception instanceof AccessForbiddenException){
+            $errorTitle = "Access forbidden.";
         }
-        
-        echo $exception->__toString();
-        
-        $classname = get_class($exception);
-        echo "<p>$classname</p>";
         
         return $this->render("error.latte", ["error" => $errorTitle]);
     }

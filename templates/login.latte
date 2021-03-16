@@ -1,12 +1,31 @@
-{layout "base.latte"}
-{block title}Přihlášení{/block}
+{layout "base.latte"} 
+{block title}Login{/block} 
 {block content}
-	<form action="/login" method="post">
-		<input type="email" name="email" placeholder="Email">
-		<input type="password" name="password" placeholder="Password">
-		<input type="submit" value="Přihlásit se">
-	</form>
-	{if $error}
-		<p style="color: red;">Špatné přihlašovací údaje.</p>
-	{/if}
-{/block}
+<section class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-sm-12 col-md-12 col-lg-6 card">
+			<div class="card-header">Login</div>
+			<div class="card-body">
+				<h5 class="card-title">Login</h5>
+				<div class="card-text">
+					<form action="/login" method="post">
+						<div class="mb-3">
+							<label for="emailInput" class="form-label">Email</label> <input
+								type="email" class="form-control" id="emailInput" name="email">
+						</div>
+						<div class="mb-3">
+							<label for="passwordInput" class="form-label">Password</label> <input
+								type="password" class="form-control" id="passwordInput"
+								name="password">
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+						<a href="/register" class="btn btn-primary ml-2" role="btn">Registration</a>
+					</form>
+					{if $error}
+						<p style="color: red;">Wrong creds.</p>
+					{/if} {/block}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

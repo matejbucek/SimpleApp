@@ -16,12 +16,12 @@ class AppController extends AbstractController
     
     #[Route("/", methods: ["GET"], name: "main")]
     public function getMain(): HttpResponse{
-        return $this->render("index.latte");
+        return $this->render("index.latte", ["loggedIn" => $this->userService->isLoggedIn()]);
     }
     
-    #[Route("/ahoj", methods: ["GET"])]
+    #[Route("/secured", methods: ["GET"])]
     public function getAhoj(){
-        return $this->response("<h1>AHOJ</h1>");
+        return $this->render("secured.latte", ["loggedIn" => $this->userService->isLoggedIn()]);
     }
     
     #[Route("/login", methods: ["GET"])]
@@ -65,7 +65,7 @@ class AppController extends AbstractController
             $repassword = $request->getParams()["re-password"];
             
             if($password != $repassword){
-                return $this->render("register.latte", ["error" => TRUE, "errorMessage" => "Hesla se neshodují!"]);
+                return $this->render("register.latte", ["error" => TRUE, "errorMessage" => "Password does not match."]);
             }
             
             if($this->userService->register($email, $password)){

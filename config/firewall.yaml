@@ -8,11 +8,8 @@ firewall:
          methods: ["GET"]
          permitAll: true
       secured:
-         path: /ahoj/**
-         hasRole: ["USER"]
-      admin:
-         path: /admin/**
-         hasRole: [admin]
+         path: /secured/**
+         authenticated: true
       default:
          default: true
          permitAll: true
